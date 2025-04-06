@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace TDV_Semana_2_Tarea1
 {
-    internal class Player
+    internal class EnemyRange
     {
         public int Life;
         public int Damage;
+        public int Bullet;
 
-        public Player(int life, int damage) 
-        { 
+        public EnemyRange(int life, int damage, int bullet)
+        {
             this.Life = life;
             this.Damage = damage;
+            this.Bullet = bullet;
         }
 
         public void ReceiveDamage(int damage)
@@ -24,12 +26,22 @@ namespace TDV_Semana_2_Tarea1
         }
 
         public int Attack()
-        { 
-            return Damage; 
+        {
+            if (Bullet > 0)
+            {
+                Bullet--;
+                return Damage;
+            }
+            return 0;
+        }
+
+        public bool CanAttack()
+        {
+            return Bullet > 0;
         }
 
         public bool IsAlive()
-        {
+        { 
             return Life > 0;
         }
     }

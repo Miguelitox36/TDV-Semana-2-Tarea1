@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace TDV_Semana_2_Tarea1
 {
-    internal class Player
+    internal class EnemyMelee
     {
         public int Life;
         public int Damage;
 
-        public Player(int life, int damage) 
+        public EnemyMelee(int life, int damage) 
         { 
             this.Life = life;
             this.Damage = damage;
@@ -24,8 +24,8 @@ namespace TDV_Semana_2_Tarea1
         }
 
         public int Attack()
-        { 
-            return Damage; 
+        {
+            return Damage;
         }
 
         public bool IsAlive()
