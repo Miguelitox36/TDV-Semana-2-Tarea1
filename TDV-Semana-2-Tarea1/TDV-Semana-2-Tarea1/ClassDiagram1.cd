@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TDV_Semana_2_Tarea1.EnemyMelee">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAgAAAAAAAAAAAAAAIAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>EnemyMelee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TDV_Semana_2_Tarea1.EnemyRange">
+    <Position X="9" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAgAAAAAIAAAAAAAAIAAAAAAAAAAAAARAAA=</HashCode>
+      <FileName>EnemyRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TDV_Semana_2_Tarea1.Game">
+    <Position X="10.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAiAAAAAgIAAAAEAAAAAAAAABQAQAAAAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TDV_Semana_2_Tarea1.Player">
+    <Position X="7.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAAAgAAACAAAAAAAAAAIAAAAAAAAQAYAABAAA=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TDV_Semana_2_Tarea1.Program">
+    <Position X="9" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
