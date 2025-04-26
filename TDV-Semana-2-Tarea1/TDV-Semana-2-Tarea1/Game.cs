@@ -18,11 +18,11 @@ namespace TDV_Semana_2_Tarea1
             player = NewPlayer();
 
             enemies = new List<object>
-        {
-            new EnemyMelee(30, 10),
-            new EnemyRange(25, 8, 3),
-            new EnemyMelee(40, 12)
-        };
+            {
+                new EnemyMelee(30, 10),
+                new EnemyRange(25, 8, 3),
+                new EnemyMelee(40, 12)
+            };
 
             Console.WriteLine("\n--- COMIENZA EL JUEGO ---");
 
@@ -30,33 +30,50 @@ namespace TDV_Semana_2_Tarea1
             {
                 ShowStatus();
 
-                Console.Write("\nSeleccione enemigo a atacar (0 - {0}): ", enemies.Count - 1);
-                if (!int.TryParse(Console.ReadLine(), out int indice) || indice < 0 || indice >= enemies.Count)
+                Console.WriteLine("\n¿Qué desea hacer?");
+                Console.WriteLine("1. Atacar");
+                Console.WriteLine("2. Curarse (+20 vida)");
+                Console.Write("Opción: ");
+                string option = Console.ReadLine();
+
+                if (option == "1")
                 {
-                    Console.WriteLine("Índice inválido.");
-                    continue;
-                }
-
-                var enemy = enemies[indice];
-                if (!IsAlive(enemy))
-                {
-                    Console.WriteLine("Ese enemigo ya está muerto.");
-                    continue;
-                }
-
-                int damagePlayer = player.Attack();
-                TakeEnemyDamage(enemy, damagePlayer);
-                Console.WriteLine($"El jugador ataca al enemigo {indice} y causa {damagePlayer} de daño.");
-
-
-                enemy = GetRandomLiveEnemy();
-                if (enemy != null)
-                {
-                    int DamagePlayer = AttackEnemy(enemy);
-                    if (damagePlayer > 0)
+                    Console.Write("Seleccione enemigo a atacar (0 - {0}): ", enemies.Count - 1);
+                    if (!int.TryParse(Console.ReadLine(), out int indice) || indice < 0 || indice >= enemies.Count)
                     {
-                        player.ReceiveDamage(damagePlayer);
-                        Console.WriteLine($"El enemigo ataca al jugador y causa {damagePlayer} de daño.");
+                        Console.WriteLine("Índice inválido.");
+                        continue;
+                    }
+
+                    var enemy = enemies[indice];
+                    if (!IsAlive(enemy))
+                    {
+                        Console.WriteLine("Ese enemigo ya está muerto.");
+                        continue;
+                    }
+
+                    int damagePlayer = player.Attack();
+                    TakeEnemyDamage(enemy, damagePlayer);
+                    Console.WriteLine($"El jugador ataca al enemigo {indice} y causa {damagePlayer} de daño.");
+                }
+                else if (option == "2")
+                {
+                    player.Heal();
+                }
+                else
+                {
+                    Console.WriteLine("Opción no válida.");
+                    continue;
+                }
+
+                var attackingEnemy = GetRandomLiveEnemy();
+                if (attackingEnemy != null)
+                {
+                    int damageEnemy = AttackEnemy(attackingEnemy);
+                    if (damageEnemy > 0)
+                    {
+                        player.ReceiveDamage(damageEnemy);
+                        Console.WriteLine($"El enemigo ataca al jugador y causa {damageEnemy} de daño.");
                     }
                     else
                     {
@@ -82,7 +99,6 @@ namespace TDV_Semana_2_Tarea1
                 Console.Write("Ingrese daño del jugador (1-100): ");
                 damage = int.Parse(Console.ReadLine());
             }
-
             while (life > 100 || damage > 100);
 
             return new Player(life, damage);
@@ -137,6 +153,5 @@ namespace TDV_Semana_2_Tarea1
                     Console.WriteLine($"Enemigo {i} [{type}] - Vida: {er.Life} - Balas: {er.Bullet} - Estado: {status}");
             }
         }
-
     }
 }
